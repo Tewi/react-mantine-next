@@ -1,2 +1,2 @@
-export * from './AppShell';
-export { default } from './AppShell';
+export * from './AppShellDemo';
+export { default } from './AppShellDemo';

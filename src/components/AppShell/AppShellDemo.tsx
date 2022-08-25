@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {
 	AppShell,
-	Navbar,
 	Header,
 	Footer,
 	Aside,
@@ -11,7 +10,13 @@ import {
 	useMantineTheme
 } from '@mantine/core';
 
-export function AppShellDemo({ children }) {
+import { NavbarNested } from './NavbarNested';
+
+export interface AppShellDemoProps {
+	children: React.ReactNode;
+}
+
+export function AppShellDemo({ children }: AppShellDemoProps) {
 	const theme = useMantineTheme();
 	const [opened, setOpened] = useState(false);
 	return (
@@ -23,11 +28,7 @@ export function AppShellDemo({ children }) {
 			}}
 			navbarOffsetBreakpoint="sm"
 			asideOffsetBreakpoint="sm"
-			navbar={
-				<Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-					<Text>Application navbar</Text>
-				</Navbar>
-			}
+			navbar={<NavbarNested />}
 			aside={
 				<MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
 					<Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
