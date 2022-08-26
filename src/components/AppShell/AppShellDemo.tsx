@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import {
+	Box,
+	Center,
 	AppShell,
 	Header,
 	Footer,
@@ -11,6 +13,7 @@ import {
 } from '@mantine/core';
 
 import { NavbarNested } from './NavbarNested';
+import { ColorSchemeButtonToggle } from '~/components/ColorSchemeButtonToggle';
 
 export interface AppShellDemoProps {
 	children: React.ReactNode;
@@ -42,9 +45,8 @@ export function AppShellDemo({ children }: AppShellDemoProps) {
 				</Footer>
 			}
 			header={
-				<Header height={70} p="md">
-					<div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-						<MediaQuery largerThan="sm" styles={{ display: 'none' }}>
+				<Header height={70} p="md" sx={{ display: 'flex' }}>
+					{/* <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
 							<Burger
 								opened={opened}
 								onClick={() => setOpened((o) => !o)}
@@ -52,10 +54,14 @@ export function AppShellDemo({ children }: AppShellDemoProps) {
 								color={theme.colors.gray[6]}
 								mr="xl"
 							/>
-						</MediaQuery>
+						</MediaQuery> */}
 
+					<Box>
 						<Text>Application header</Text>
-					</div>
+					</Box>
+					<Center sx={{ marginLeft: 'auto', display: 'flex' }}>
+						<ColorSchemeButtonToggle />
+					</Center>
 				</Header>
 			}
 		>
